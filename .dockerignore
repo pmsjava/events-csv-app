@@ -6,3 +6,7 @@ README.md
 run.sh
 docker-compose.yml
 vendor/
+
+# PHPUnit cache
+.phpunit.cache
+.phpunit.cache/

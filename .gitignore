@@ -7,3 +7,7 @@ vendor/
 
 # Logs
 *.log
+
+# PHPUnit cache
+.phpunit.cache
+.phpunit.cache/
