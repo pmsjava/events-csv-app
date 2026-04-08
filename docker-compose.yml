@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - ./public:/app/public
+      - ./src:/app/src
+      - ./views:/app/views
+      - ./data:/app/data
+    command: php -S 0.0.0.0:8000 -t public
+
+  tests:
+    build: .
+    profiles: ["test"]
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./views:/app/views
+      - ./phpunit.xml:/app/phpunit.xml
+      - ./.php-cs-fixer.dist.php:/app/.php-cs-fixer.dist.php
+    command: composer verify
